@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>HOPEAdmin - Terus Terus Hope</title>
-    <meta name="description" content="HopeAdmin - Terus Terus Hope">
+    <meta name="description" content="ShaynaAdmin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="apple-touch-icon" href="https://i.imgur.com/QRAUqs9.png">
@@ -98,8 +98,6 @@
     <script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.js"></script>
     <script src="{{ asset('assets/js/init/fullcalendar-init.js') }}"></script>
-
-    @yield('script')
 
     <!--Local Stuff-->
     <script>

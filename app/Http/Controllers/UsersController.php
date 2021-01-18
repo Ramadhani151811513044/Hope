@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
+use App\Models\User;
 use Illuminate\Support\Str;
 
 class UsersController extends Controller
@@ -15,8 +15,8 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $user = User::paginate(8);
-        return view ('users.index',compact('user'));
+        $user = User::paginate(10);
+        return view ('users.admin.index',compact('user'));
     }
 
     /**
@@ -29,10 +29,10 @@ class UsersController extends Controller
         return view('users.admin.create');
     }
 
-    // public function createCust()
-    // {
-    //     return view('users.customer.signup');
-    // }
+    public function createUser()
+    {
+        return view('users.create');
+    }
 
     // public function createPedagang()
     // {
@@ -60,44 +60,44 @@ class UsersController extends Controller
             'password' => bcrypt($request->password),
             'remember_token' => Str::random(60)
         ]);
-        return redirect('/user')->with('status','Data Berhasil Ditambahkan!');
+        return redirect('/user');
     }
 
-    // public function storeCust(Request $request)
-    // {
-    //     $request->validate([
-    //         'name' => 'required',
-    //         'email' => 'required',
-    //         'password' => 'required'
-    //     ]);
+    public function storeCust(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required'
+        ]);
 
-    //     User::create([
-    //         'role' => 'customer',
-    //         'name' => $request->name,
-    //         'email' => $request->email,
-    //         'password' => bcrypt($request->password),
-    //         'remember_token' => Str::random(60)
-    //     ]);
-    //     return redirect('/login');
-    // }
+        User::create([
+            'role' => 'user',
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+            'remember_token' => Str::random(60)
+        ]);
+        return redirect('/user');
+    }
 
-    // public function storePedagang(Request $request)
-    // {
-    //     $request->validate([
-    //         'name' => 'required',
-    //         'email' => 'required',
-    //         'password' => 'required'
-    //     ]);
+    public function storePedagang(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required'
+        ]);
 
-    //     User::create([
-    //         'role' => 'pedagang',
-    //         'name' => $request->name,
-    //         'email' => $request->email,
-    //         'password' => bcrypt($request->password),
-    //         'remember_token' => Str::random(60)
-    //     ]);
-    //     return redirect('/user');
-    // }
+        User::create([
+            'role' => 'pedagang',
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+            'remember_token' => Str::random(60)
+        ]);
+        return redirect('/user');
+    }
     /**
      * Display the specified resource.
      *
@@ -138,8 +138,8 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy($id)
     {
-        User::destroy($user->id);
+        //
     }
 }

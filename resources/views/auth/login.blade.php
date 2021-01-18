@@ -37,33 +37,15 @@
                     </a>
                 </div>
                     <div class="login-form">
-                        @if(session('status'))
-                            <div class="sufee-alert alert with-close alert-secondary alert-dismissible fade show">
-                                {{ session('status') }}
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                        @endif
                         <form action="/postlogin" method="post">
                         {{csrf_field()}}
                             <div class="form-group">
                                 <label>Email address</label>
-                                <input name="email" type="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email">
-                                @error('email')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
+                                <input name="email" type="email" class="form-control" placeholder="Email">
                             </div>
                             <div class="form-group">
                                 <label>Password</label>
-                                <input name="password" type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password">
-                                @error('password')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
+                                <input name="password" type="password" class="form-control" placeholder="Password">
                             </div>
                             <div class="checkbox">
                                 <label>
@@ -73,9 +55,7 @@
                                     <a href="#">Forgotten Password?</a>
                                 </label>
                             </div>
-                            @if(session()->has('error'))
-                                <div class="alert alert-danger">{{ session('error') }}</div>
-                            @endif 
+
                             <button type="submit" class="btn btn-success btn-flat m-b-30 m-t-30">Sign in</button>
                             <div class="social-login-content">
                                 <div class="social-button">
@@ -84,7 +64,7 @@
                                 </div>
                             </div>
                             <div class="register-link m-t-15 text-center">
-                                <p>Don't have account ? <a href="{{ url('/signup')}}"> Sign Up Here</a></p>
+                                <p>Don't have account ? <a href="#"> Sign Up Here</a></p>
                             </div>
                         </form>
                     </div>
