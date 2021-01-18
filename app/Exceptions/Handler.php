@@ -4,7 +4,10 @@ namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+<<<<<<< Updated upstream
 use illuminate \Auth\AuthenticationException;
+=======
+>>>>>>> Stashed changes
 
 class Handler extends ExceptionHandler
 {
@@ -51,10 +54,14 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+<<<<<<< Updated upstream
         // if($exception instanceof AuthenticationException){
         //     return redirect('/');
         // }
         return parent::render($request, $exception);
         // return redirect()->action('LoginController@index')
+=======
+        //
+>>>>>>> Stashed changes
     }
 }

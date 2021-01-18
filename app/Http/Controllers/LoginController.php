@@ -10,7 +10,7 @@ use Str;
 class LoginController extends Controller
 {
     public function index(){
-        return view('auth.login');
+        return view('loginpage');
     }
 
     public function postlogin(Request $request){
@@ -24,6 +24,7 @@ class LoginController extends Controller
         }   
         session()->flash('error', 'Email or Password is Invalid');
         return redirect('/login');
+        // dd($request->all());
     }
 
     public function signup(){
@@ -50,4 +51,5 @@ class LoginController extends Controller
         Auth::logout();
         return redirect('/login');
     }
+    
 }

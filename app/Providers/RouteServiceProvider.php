@@ -17,6 +17,7 @@ class RouteServiceProvider extends ServiceProvider
     protected $namespace = 'App\Http\Controllers';
 
     /**
+<<<<<<< Updated upstream
      * The path to the "home" route for your application.
      *
      * @var string
@@ -24,15 +25,30 @@ class RouteServiceProvider extends ServiceProvider
     public const HOME = '/home';
 
     /**
+=======
+>>>>>>> Stashed changes
      * Define your route model bindings, pattern filters, etc.
      *
      * @return void
      */
     public function boot()
     {
+<<<<<<< Updated upstream
         //
 
         parent::boot();
+=======
+        $this->configureRateLimiting();
+
+        $this->routes(function () {
+            Route::middleware('web')
+                ->group(base_path('routes/web.php'));
+
+            Route::prefix('api')
+                ->middleware('api')
+                ->group(base_path('routes/api.php'));
+        });
+>>>>>>> Stashed changes
     }
 
     /**
@@ -72,9 +88,15 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapApiRoutes()
     {
+<<<<<<< Updated upstream
         Route::prefix('api')
              ->middleware('api')
              ->namespace($this->namespace)
              ->group(base_path('routes/api.php'));
+=======
+        RateLimiter::for('api', function (Request $request) {
+            return Limit::perMinute(60);
+        });
+>>>>>>> Stashed changes
     }
 }

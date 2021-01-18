@@ -40,6 +40,7 @@ We would like to extend our thanks to the following sponsors for funding Laravel
 - **[British Software Development](https://www.britishsoftware.co)**
 - **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
 - **[DevSquad](https://devsquad.com)**
+<<<<<<< Updated upstream
 - [UserInsights](https://userinsights.com)
 - [Fragrantica](https://www.fragrantica.com)
 - [SOFTonSOFA](https://softonsofa.com/)
@@ -60,6 +61,9 @@ We would like to extend our thanks to the following sponsors for funding Laravel
 - [Hyper Host](https://hyper.host)
 - [Appoly](https://www.appoly.co.uk)
 - [OP.GG](https://op.gg)
+=======
+- **[OP.GG](https://op.gg)**
+>>>>>>> Stashed changes
 
 ## Contributing
 

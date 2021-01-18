@@ -13,10 +13,17 @@ class RedirectIfAuthenticated
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
+<<<<<<< Updated upstream
      * @param  string|null  $guard
      * @return mixed
      */
     public function handle($request, Closure $next, $guard = null)
+=======
+     * @param  string[]|null  ...$guards
+     * @return mixed
+     */
+    public function handle($request, Closure $next, ...$guards)
+>>>>>>> Stashed changes
     {
         if (Auth::guard($guard)->check()) {
             return redirect(RouteServiceProvider::HOME);
